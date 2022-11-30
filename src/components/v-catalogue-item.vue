@@ -9,7 +9,7 @@
     <p> {{product_data.available ? "В наличии" : "Ожидается"}}</p>
     <button
         class="v-catalog-item__add_to_cart_btn btn"
-        @click="sendDataToParent"
+        @click="addToCart"
     >Add to cart</button>
   </div>
 </template>
@@ -34,8 +34,8 @@ export default {
   },
   computed: {},
   methods: {
-    sendDataToParent() {
-      this.$emit('sendArticle', this.product_data.article)
+    addToCart(){
+      this.$emit('addToCart', this.product_data)
     }
   },
   watch: {},
