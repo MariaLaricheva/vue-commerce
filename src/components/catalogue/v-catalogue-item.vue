@@ -1,6 +1,6 @@
 <template>
   <div class="v-catalog-item">
-    <img class="v-catalog-item__image" :src=" require('../assets/images/' + product_data.image) " alt="product image">
+    <img class="v-catalog-item__image" :src=" require('../../assets/images/' + product_data.image) " alt="product image">
     <p class="v-catalog-item__name">{{ product_data.name}}</p>
     <p class="v-catalog-item__price">{{ product_data.price.toFixed() }} руб.</p>
     <p>

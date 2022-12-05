@@ -1,4 +1,6 @@
 # vue-commerce
+## a simple e-commerce app developed with vue
+
 To view app run
 ```
 json-server --watch db.json

@@ -1,6 +1,6 @@
 import {createWebHistory, createRouter } from 'vue-router'
-import vCatalogue from '../components/v-catalogue'
-import vCart from '../components/v-cart'
+import vCatalogue from '../components/catalogue/v-catalogue'
+import vCart from '../components/cart/v-cart'
 
 const router = createRouter({
     history: createWebHistory(),

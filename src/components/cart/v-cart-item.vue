@@ -1,6 +1,6 @@
 <template>
   <div class="v-cart-item">
-    <img class="v-cart-item__image" :src=" require('../assets/images/' + cart_item_data.image) " alt="item image">
+    <img class="v-cart-item__image" :src=" require('../../assets/images/' + cart_item_data.image) " alt="item image">
     <div class="v-cart-item__info">
       <p class="v-cart-item__name">{{ cart_item_data.name }}</p>
       <p class="v-cart-item__price">Артикул: {{ cart_item_data.article }}</p>
