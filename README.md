@@ -1,23 +1,28 @@
 # vue-commerce
+To view app run
+```
+json-server --watch db.json
+```
+and in a separate terminal run
+```
+npm run serve
+```
+
 
 ## Project setup
 ```
-yarn install
+npm install
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
 
 ### Compiles and minifies for production
 ```
-yarn build
+npm build
 ```
 
 ### Lints and fixes files
 ```
-yarn lint
+npm lint
 ```
 
 ### Customize configuration

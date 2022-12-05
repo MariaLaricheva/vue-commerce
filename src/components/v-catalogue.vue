@@ -1,12 +1,16 @@
 <template>
   <div class="v-catalogue">
-    Catalogue
+    <router-link to="/cart" v-bind:cart_data="CART">
+      <div class="v-catalogue__link-to-cart">Cart: {{CART.length}} unique items</div>
+    </router-link>
+
+    <h1>Catalogue</h1>
       <div class="v-catalogue__list">
       <v-catalogue-item
-      v-for="product in PRODUCTS"
-      :key="product.article"
-      v-bind:product_data="product"
-      @addToCart="addToCart"
+        v-for="product in PRODUCTS"
+        :key="product.article"
+        v-bind:product_data="product"
+        @addToCart="addToCart"
       />
     </div>
   </div>
@@ -24,13 +28,12 @@ export default {
   props: {},
   data() {
     return {
-
-      title: 'Catalogue'
     }
   },
   computed: {
     ...mapGetters([
-        'PRODUCTS'
+        'PRODUCTS',
+        'CART'
     ])
   },
   methods: {
@@ -62,5 +65,12 @@ export default {
     justify-content: space-between;
     align-items: center;
    }
+  &__link-to-cart {
+    top: 10px;
+    right: 10px;
+    padding: $padding*2;
+    border: solid 1px #aeaeae;
+    background: white;
+  }
 }
 </style>

@@ -2,23 +2,29 @@
   <div class="v-cart-item">
     <img class="v-cart-item__image" :src=" require('../assets/images/' + cart_item_data.image) " alt="item image">
     <div class="v-cart-item__info">
-      <p class="v-cart-item__name">{{ cart_item_data.name}}</p>
+      <p class="v-cart-item__name">{{ cart_item_data.name }}</p>
+      <p class="v-cart-item__price">Артикул: {{ cart_item_data.article }}</p>
       <p class="v-cart-item__price">{{ cart_item_data.price.toFixed() }} руб.</p>
-      <p class="v-cart-item__price">Артикул: {{ cart_item_data.article}}</p>
     </div>
 
     <div class="v-cart-item__quantity">
-      <button
-          class="v-cart-item__delete-item-btn btn"
-          @click="deleteItem"
-      >Delete</button>
+      <span class="v-cart-item__quantity-btn" @click="decrementItem">
+-
+      </span>
+      <p>Кол-во: {{ cart_item_data.quantity }}</p>
+      <span class="v-cart-item__quantity-btn" @click="incrementItem">
++
+      </span>
     </div>
-
+    <button
+        class="v-cart-item__delete-item-btn btn"
+        @click="deleteFromCart"
+    >Delete
+    </button>
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'v-cart-item',
   components: {},
@@ -30,20 +36,19 @@ export default {
       }
     }
   },
-  data() {
-    return {
-      title: 'Cart item'
-    }
-  },
   computed: {},
   methods: {
-    sendDataToParent() {
-      this.$emit('sendArticle', this.product_data.article)
+    deleteFromCart() {
+      this.$emit('deleteFromCart')
+    },
+    decrementItem() {
+      this.$emit('decrementCartItem')
+     // this.DECREMENT_CART_ITEM(this.cart_item_data.article)
+    },
+    incrementItem() {
+      this.$emit('incrementCartItem')
+      //this.INCREMENT_CART_ITEM()
     }
-  },
-  watch: {},
-  mounted() {
-
   }
 }
 
@@ -60,12 +65,30 @@ export default {
   box-shadow: 0 0 8px #e0e0e0;
   padding: $padding*1.5 $padding*4.5;
   margin-bottom: $margin*2;
+
   &__info {
     display: flex;
     gap: $padding*3;
   }
-  &__image{
+
+  &__image {
     width: 30px;
   }
+}
+
+.v-cart-item__quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.v-cart-item__quantity-btn {
+  cursor: pointer;
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0 $margin;
+  text-align: center;
+  width: 25px;
+  height: 25px;
 }
 </style>

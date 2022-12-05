@@ -1,12 +1,10 @@
 <template>
   <div id="app">
-    <p> hello </p>
     <VMainWrapper/>
   </div>
 </template>
 
 <script>
-
 import VMainWrapper from "@/components/v-main-wrapper";
 
 export default {
